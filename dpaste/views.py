@@ -128,7 +128,7 @@ def snippet_history(request, template_name='dpaste/snippet_list.html'):
     if snippet_id_list:
         snippet_list = Snippet.objects.filter(pk__in=snippet_id_list)
 
-    if 'delete-all' in request.GET:
+    if 'delete-all' in request.POST:
         if snippet_list:
             for s in snippet_list:
                 s.delete()

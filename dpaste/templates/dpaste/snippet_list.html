@@ -24,7 +24,10 @@
     {% endfor %}
 
     <hr/>
+    <form method="post" action="?delete-all">
+        {% csrf_token %}
     <div>
-        <p><a href="?delete-all">Delete all your snippets.</a></p>
+        <p><input type="Submit" value="Delete all your snippets."/></p>
     </div>
+    </form>
 {% endblock %}

@@ -297,7 +297,7 @@ class SnippetTestCase(TestCase):
 
     def test_snippet_history_delete_all(self):
         # Empty list, delete all raises no error
-        response = self.client.get(reverse('snippet_history') + '?delete-all', follow=True)
+        response = self.client.post(reverse('snippet_history') + '?delete-all', follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(Snippet.objects.count(), 0)
 
@@ -309,7 +309,7 @@ class SnippetTestCase(TestCase):
         self.assertEqual(Snippet.objects.count(), 2)
 
         # Delete all of them
-        response = self.client.get(reverse('snippet_history') + '?delete-all', follow=True)
+        response = self.client.post(reverse('snippet_history') + '?delete-all', follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(Snippet.objects.count(), 0)
 
